@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap');
+
+
+canvas{
+  pointer-events: none;
+  z-index: 10;
+  position: absolute;
+ 
+}
+@media (min-width: 300px) and (max-width: 600px) {
+  canvas{
+    display: none!important;
+  }
+}
+body {
+  margin: 0px;
+  background: #ECEFF1;
+  -webkit-backface-visibility: hidden;
+}
+
+.blob {
+  position: fixed;
+  background: #f5bc42;
+  background-size: 1000% 1000%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  border-radius: 100%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.blobs {
+  filter: url("#goo");
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  border: 3px solid;
+  border-color: transparent;
+}
+
+.one {
+  left: 50%;
+  filter: blur(15px);
+}
+
+.four {
+  filter: blur(20px);
+  position: fixed;
+  background: rgba(77, 208, 225, 0.7) !important;
+  left: calc(var(--mouse-x) * 0.27px);
+  transform: translate(-50%, -50%);
+  top: calc(var(--mouse-y) * 0.27px);
+  margin-left: calc(var(--page-x) * 0.5px - 13vw);
+  margin-top: calc(var(--page-y) * 0.5px - 12vh);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.vsfr {
+  opacity: 1 !important;
+}

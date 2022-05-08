@@ -1,32 +1,69 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+ 
+ <transition
+        name="fade"
+        mode="out-in"
+        type="transition"
+      >
+    <router-view />
+     </transition>
+   <!-- <TheMenu/>!-->
+
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+//import TheMenu from "@/component/menu";
+
+export default {
+  name: 'App',
+  components: {
+    //TheMenu,
+  },
+}
+</script>
+
+<style>
+
+@import "assets/css/app.css";
+
+body{
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #131212;
 }
 
-nav {
-  padding: 30px;
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@font-face {
+  font-family: 'NeueM';
+  /*src: url('./assets/fonts/Neue/MAK.eot'); /* IE9 Compat Modes */
+  /*src: url('./assets/fonts/Neue/MAK.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src: url('./assets/fonts/Neue/NeueHaasDisplayMediu.woff') format('woff')/*, !* Modern Browsers *!
+  url('static/fonts/Mak/MAK.ttf') format('truetype')*/ ; /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'NeueL';
+  /*src: url('./assets/fonts/Neue/MAK.eot'); /* IE9 Compat Modes */
+  /*src: url('./assets/fonts/Neue/MAK.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src: url('./assets/fonts/Neue/NeueHaasDisplayLight.woff') format('woff')/*, !* Modern Browsers *!
+  url('static/fonts/Mak/MAK.ttf') format('truetype')*/ ; /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
 }
 </style>

@@ -1,27 +1,28 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import VueRouter from "vue-router";
+import Home from "@/Pages/Home";
+import HomeWork from "@/Pages/HomeWork";
+import WorkSchool from "@/Pages/PagesWork/WorkSchool";
+import WorkFreelance from "@/Pages/PagesWork/WorkFreelance";
+import WorkPerso from "@/Pages/PagesWork/WorkPerso"
+import Doubleboggey from "@/Pages/Projects/Doubleboggey"
+
+
+
+
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
-
-const router = new VueRouter({
-  routes
+ export const router = new VueRouter({
+    routes: [
+        {path: '/',name: 'Home',component: Home},
+        {path: '/HomeWork',name: 'HomeWork',component: HomeWork},
+        {path: '/WorkSchool',name: 'WorkSchool',component: WorkSchool},
+        {path: '/WorkFreelance',name: 'WorkFreelance',component: WorkFreelance},
+        {path: '/WorkPerso',name: 'WorkPerso',component: WorkPerso},
+        {path: '/Doubleboggey',name: 'Doubleboggey',component: Doubleboggey},
+    ]
 })
 
-export default router
+
+
