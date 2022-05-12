@@ -6,7 +6,14 @@ canvas{
   z-index: 10;
   position: absolute;
  
+ 
 }
+
+.main canvas{
+  mix-blend-mode: difference;
+}
+
+
 @media (min-width: 300px) and (max-width: 600px) {
   canvas{
     display: none!important;

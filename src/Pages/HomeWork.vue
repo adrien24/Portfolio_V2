@@ -25,6 +25,15 @@
           <defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" /><feBlend in="SourceGraphic" in2="goo" /></filter>
           </defs>
         </svg>
+
+         <div class="page">
+              <div class="about">
+                  <router-link to="/Work" class="cool-link">About</router-link>
+              </div>
+              <div class="about">
+                  <router-link to="/HomeWork" class="cool-link">projects</router-link>
+              </div>
+      </div> 
   </div>
 </template>
 <script>
@@ -80,19 +89,24 @@ export default {
   padding: 0;
   font-size: clamp(2.5rem, 1.8056rem + 3.7037vw, 6.25rem);
   color: white;
-  overflow: hidden;
+  overflow: hidden!important;
   width: 100%;
+  max-height: 100vh;
+
 }
+
+
 
 .home{
   background-color: #131212;
-  height: 100vh;
+ 
 }
 
 main {
   width: 100%;
   height: 100vh;
   display: flex;
+  overflow: hidden!important;
 
   
   
@@ -363,6 +377,42 @@ main {
 
   }
 }
+
+.page{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-content: center;
+      position: relative;
+      z-index: 10;
+      margin-left: -5%;
+      
+      a{
+          color: white;
+          position: absolute;
+          text-decoration: none;
+          font-size: clamp(0.875rem, 0.8287rem + 0.2469vw, 1.125rem);
+          font-family: "NeueL", sans-serif;
+          border-bottom: 0px solid #FFFFFF;
+          cursor: po;
+                  
+      }
+
+      .cool-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #FFFFFF;
+        transition: width .3s;
+    }
+
+    .cool-link:hover::after {
+        width: 100%;
+        //transition: width .3s;
+    }
+      
+  }
 
 
 </style>

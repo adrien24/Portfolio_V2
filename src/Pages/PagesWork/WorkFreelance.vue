@@ -1,14 +1,71 @@
 <template>
   <div id="work">
-    <main ref="main">
-      <ul ref="ul">
-       <router-link to="/HomeWork"> <li ref="li" ><span>Seqens Accession</span><span>This project was created in 2021</span></li></router-link>
-        <li ref="li"><span>Studiosupram</span><span>This project was created in 2021</span></li>      
+    <main ref="main" id="upSize">
+      <ul ref="ul" id="sizeHeight">
+        <li ref="li" v-on:click="show()">
+          <div class="myProject">
+            <div class="presentation">
+              <span>Seqens</span>
+              <span>This project was created in 2021</span>
+            </div>
+            <div id="show"  class="remove none">
+              <div class="description">
+                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
+              </div>
+              <div class="link">
+              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li ref="li" v-on:click="show1()">
+          <div class="myProject">
+            <div class="presentation">
+              <span>MICHELANGELO</span>
+              <span>This project was created in 2021 / 2022</span>
+            </div>
+            <div id="show1"  class="remove none">
+              <div class="description">
+                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
+              </div>
+              <div class="link">
+              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li ref="li" v-on:click="show2()">
+          <div class="myProject">
+            <div class="presentation">
+              <span>NEARIDE</span>
+              <span>This project was created in 2021 / 2022</span>
+            </div>
+           <div id="show2"  class="remove none">
+              <div class="description">
+                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
+              </div>
+              <div class="link">
+              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+              </div>
+            </div>
+          </div>
+        </li>      
       </ul>
+      
+ 
     </main>
-    
-  <div class="block"></div>
-  </div>
+     <div class="page">
+              <div class="about">
+                  <router-link to="/About" class="cool-link">About</router-link>
+              </div>
+              <div class="about">
+                  <router-link to="/" class="cool-link">Home</router-link>
+              </div>
+               <div class="about">
+                  <router-link to="/HomeWork" class="cool-link">Page projects</router-link>
+              </div>
+      </div> 
+   </div>
 </template>
 
 <script>
@@ -39,6 +96,7 @@ export default {
       texturefour: null,
       uniforms: null,
       lastScrollPosition: 0,
+      intElemScrollHeight: '',
     }
   },
 
@@ -46,15 +104,82 @@ export default {
     this.loadImages();
     this.runScene();
     this.onScrollMove()
+    
+    setInterval(this.sizeHeight, 1000)
+    
+     
   },
 
   methods: {
+
+    sizeHeight(){
+        const intElemScrollHeight = document.getElementById('sizeHeight').scrollHeight;
+        document.getElementById('upSize').style.height = intElemScrollHeight + 'px'
+        
+        const canvas = document.getElementsByTagName('SPA');
+        console.log(canvas)
+        if(intElemScrollHeight > document.documentElement.clientHeight){
+            canvas.style.width = document.documentElement.clientWidth + 'px!important'
+             canvas.style.height = document.documentElement.clientHeight + 'px!important'
+        }
+             
+    },
+
+    show(){
+      const show = document.getElementById('show')
+      const show1 = document.getElementById('show1')
+      const show2 = document.getElementById('show2')
+      show.classList.remove('none')
+      show.classList.toggle("remove");
+      show.classList.toggle("show");
+
+      show1.classList.remove('show')
+      show1.classList.add('remove')
+      show2.classList.remove('show')
+      show2.classList.add('remove')
+    },
+
+    show1(){
+      const show = document.getElementById('show')
+      const show2 = document.getElementById('show2')
+      const show1 = document.getElementById('show1')
+      
+      show1.classList.remove('none')
+      show1.classList.toggle("remove");
+      show1.classList.toggle("show");
+
+
+      show.classList.remove('show')
+      show.classList.add('remove')
+      show2.classList.remove('show')
+      show2.classList.add('remove')
+       
+    },
+
+      show2(){
+      const show = document.getElementById('show')
+      const show1 = document.getElementById('show1')
+      const show2 = document.getElementById('show2')
+      
+      show2.classList.remove('none')
+      show2.classList.toggle("remove");
+      show2.classList.toggle("show");
+
+      show.classList.remove('show')
+      show.classList.add('remove')
+      show1.classList.remove('show')
+      show1.classList.add('remove')
+
+      
+    },
+
     lerp(start, end, t) {
       return start * (1 - t) + end * t;
     },
     loadImages() {
       this.textureOne = new THREE.TextureLoader().load(images.DoubleboggeyP);
       this.textureTwo = new THREE.TextureLoader().load(images.Michelangelo);
+      this.textureThree = new THREE.TextureLoader().load(images.Nearide);
     },
     runScene() {
       this.container = this.$refs.main;
@@ -171,6 +296,8 @@ export default {
 
   computed: {
     viewport() {
+     
+    
       const width = window.innerWidth;
       const height = this.$refs.main.clientHeight;
       const aspectRatio = width / height;
@@ -188,24 +315,32 @@ export default {
 
 <style scoped lang="scss">
 
-
-
-
-
 * {
-  font-family: 'NeueM', sans-serif;
+  font-family: 'NeueM', serif;
+  font-weight: 500;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: clamp(1.875rem, 1.1806rem + 3.7037vw, 5.625rem);
   color: #FFFFFF;
   overflow-x: hidden;
   background-color: #131212;
 }
 
+canvas{
+  mix-blend-mode: difference!important;
+}
+
+#show, #show1, #show2{
+  display: flex;
+  margin-bottom: 1.5%;
+}
+
+
 main {
   width: 100%;
-  height: 170vh;
+  height: 100vh;
+ 
+
 
 
   h1 {
@@ -216,7 +351,7 @@ main {
 
 
   ul {
-   position: absolute;
+    position: absolute;
     z-index: 1;
     width: 100%;
     height: auto;
@@ -231,18 +366,160 @@ main {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #FFFFFF;
-      padding: 3% 0 3% 0;
+  
       cursor: pointer;
       align-items: center;
+
+      .myProject{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .presentation{
+          display: flex;
+          flex-direction: row;
+          
+          justify-content: space-between;
+          align-items: center;
+          margin: 3% 0 1.5% 0;
+
+         
+
+          span:nth-child(1){
+            font-size: clamp(1.875rem, 1.1806rem + 3.7037vw, 5.625rem);
+            padding-left: 2%;
+          }
+
+          span:nth-child(2){
+            padding-right: 2%;
+            font-family: 'NeueL', serif;
+          }
+
+         
+        }
+
+        .none{
+          display: none;
+        }
+
+        .remove{
+          transition: height;
+          display: flex!important;
+          justify-content: space-around;
+          transition-duration: 1s;
+          height: 0vh;
+
+          .description{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+              p{
+                font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
+                font-family: 'NeueL', serif;
+                padding: 0 2%;
+              }
+          }
+
+          .link{
+            display: flex;
+            align-items: center;
+            width: 24%;
+            text-align: center;
+            overflow: hidden;
+           position: relative;
+            z-index: 100;
+            
+
+              a{
+                font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
+                font-family: 'NeueM', serif;
+                position: absolute;
+                padding: 0 2%;
+                color: transparent;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #fff;
+                text-decoration: none;
+              }
+
+                .cool-link::after {
+                  content: '';
+                  display: block;
+                  width: 0;
+                  height: 2px;
+                  background: #FFFFFF;
+                  transition: width .3s;
+              }
+
+              .cool-link:hover::after {
+                  width: 100%;
+                  //transition: width .3s;
+              }
+          }          
+        }
+
+        .show{
+          transition: height;
+          display: flex!important;
+          justify-content: space-around;
+          transition-duration: 2s;
+          height: 29.5vh;
+
+          .description{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            
+               p{
+                  font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
+                  font-family: 'NeueL', serif;
+                  padding: 0 2%;
+            }
+          }
+
+          .link{
+            display: flex;
+            align-items: center;
+            width: 24%;
+            text-align: center;
+            overflow: hidden;
+
+              a{
+                font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
+                font-family: 'NeueM', serif;
+                padding: 0 2%;
+                color: transparent;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #fff;
+                text-decoration: none;
+            }
+
+              .cool-link::after {
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background: #FFFFFF;
+                transition: width .3s;
+            }
+
+            .cool-link:hover::after {
+                width: 100%;
+                //transition: width .3s;
+            }
+          }
+        }
+      }
     
-
-
       &:hover{
         background-position: 0% 100%;
         color: white!important;
 
         span{
           color: white;
+          
         }
       }
 
@@ -255,10 +532,53 @@ main {
   }
 }
 
+.page{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-content: center;
+      position: absolute;     
+      z-index: 1000;
+      height: 3vh;
+      width: 100%;
+      margin-left: -4%;
+      background: transparent;
+      bottom: 19px;
+     
+     
+      
+      a{
+          color: white;
+          position: absolute;
+          text-decoration: none;
+          font-size: clamp(0.875rem, 0.8287rem + 0.2469vw, 1.125rem);
+          font-family: "NeueL", sans-serif;
+          border-bottom: 0px solid #FFFFFF;
+          background: transparent;
+          
+                  
+      }
 
-@media (min-width: 300px) and (max-width: 600px) {
-  li{
-    flex-direction: column;
+      .cool-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #FFFFFF;
+        transition: width .3s;
+    }
+
+    .cool-link:hover::after {
+        width: 100%;
+        //transition: width .3s;
+    }
+      
+  }
+
+
+@media (min-width: 300px) and (max-width: 700px) {
+  .presentation{
+    flex-direction: column!important;
   }
 
 }

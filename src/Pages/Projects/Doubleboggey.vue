@@ -64,7 +64,9 @@ export default {
 
 <style scoped lang="scss">
 
-
+.canvas{
+    height: 150vh!important;
+}
 
 .section{
     display: flex;

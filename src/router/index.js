@@ -6,6 +6,7 @@ import WorkSchool from "@/Pages/PagesWork/WorkSchool";
 import WorkFreelance from "@/Pages/PagesWork/WorkFreelance";
 import WorkPerso from "@/Pages/PagesWork/WorkPerso"
 import Doubleboggey from "@/Pages/Projects/Doubleboggey"
+import About from "@/Pages/About";
 
 
 
@@ -21,6 +22,7 @@ Vue.use(VueRouter)
         {path: '/WorkFreelance',name: 'WorkFreelance',component: WorkFreelance},
         {path: '/WorkPerso',name: 'WorkPerso',component: WorkPerso},
         {path: '/Doubleboggey',name: 'Doubleboggey',component: Doubleboggey},
+        {path: '/About',name: 'About',component: About},
     ]
 })
 
