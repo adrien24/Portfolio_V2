@@ -8,12 +8,14 @@
               <span>Seqens</span>
               <span>This project was created in 2021</span>
             </div>
-            <div id="show"  class="remove none">
+            <div id="show" class="remove none">
               <div class="description">
-                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
+                <p>
+                  Seqens was my second fiverr project, it was for a housing agency. I had to do a website redesign. It
+                  was my first real big project. I had to deal only with the front-end integration.</p>
               </div>
               <div class="link">
-              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+                <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
               </div>
             </div>
           </div>
@@ -21,51 +23,36 @@
         <li ref="li" v-on:click="show1()">
           <div class="myProject">
             <div class="presentation">
-              <span>MICHELANGELO</span>
+              <span>Studiosupram</span>
               <span>This project was created in 2021 / 2022</span>
             </div>
-            <div id="show1"  class="remove none">
+            <div id="show1" class="remove none">
               <div class="description">
-                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
+                <p>
+                  The Studiopram project was a small project, there is not much content because the model was rather empty but it was an interesting experience.</p>
               </div>
               <div class="link">
-              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+                <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
               </div>
             </div>
           </div>
         </li>
-        <li ref="li" v-on:click="show2()">
-          <div class="myProject">
-            <div class="presentation">
-              <span>NEARIDE</span>
-              <span>This project was created in 2021 / 2022</span>
-            </div>
-           <div id="show2"  class="remove none">
-              <div class="description">
-                <p>Double Boggey is an association of golfers from Occitania. This association aims to bring together many people to share friendly moments around the world of golf. Their image on the net is however not very representative of their association and they want to improve it.</p>
-              </div>
-              <div class="link">
-              <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
-              </div>
-            </div>
-          </div>
-        </li>      
       </ul>
-      
- 
+
+
     </main>
-     <div class="page">
-              <div class="about">
-                  <router-link to="/About" class="cool-link">About</router-link>
-              </div>
-              <div class="about">
-                  <router-link to="/" class="cool-link">Home</router-link>
-              </div>
-               <div class="about">
-                  <router-link to="/HomeWork" class="cool-link">Page projects</router-link>
-              </div>
-      </div> 
-   </div>
+    <div class="page">
+      <div class="about">
+        <router-link to="/About" class="cool-link">About</router-link>
+      </div>
+      <div class="about">
+        <router-link to="/" class="cool-link">Home</router-link>
+      </div>
+      <div class="about">
+        <router-link to="/HomeWork" class="cool-link">Page projects</router-link>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -104,28 +91,17 @@ export default {
     this.loadImages();
     this.runScene();
     this.onScrollMove()
-    
-    setInterval(this.sizeHeight, 1000)
-    
-     
+
+
+
+
   },
 
   methods: {
 
-    sizeHeight(){
-        const intElemScrollHeight = document.getElementById('sizeHeight').scrollHeight;
-        document.getElementById('upSize').style.height = intElemScrollHeight + 'px'
-        
-        const canvas = document.getElementsByTagName('SPA');
-        console.log(canvas)
-        if(intElemScrollHeight > document.documentElement.clientHeight){
-            canvas.style.width = document.documentElement.clientWidth + 'px!important'
-             canvas.style.height = document.documentElement.clientHeight + 'px!important'
-        }
-             
-    },
 
-    show(){
+
+    show() {
       const show = document.getElementById('show')
       const show1 = document.getElementById('show1')
       const show2 = document.getElementById('show2')
@@ -139,11 +115,11 @@ export default {
       show2.classList.add('remove')
     },
 
-    show1(){
+    show1() {
       const show = document.getElementById('show')
       const show2 = document.getElementById('show2')
       const show1 = document.getElementById('show1')
-      
+
       show1.classList.remove('none')
       show1.classList.toggle("remove");
       show1.classList.toggle("show");
@@ -153,14 +129,14 @@ export default {
       show.classList.add('remove')
       show2.classList.remove('show')
       show2.classList.add('remove')
-       
+
     },
 
-      show2(){
+    show2() {
       const show = document.getElementById('show')
       const show1 = document.getElementById('show1')
       const show2 = document.getElementById('show2')
-      
+
       show2.classList.remove('none')
       show2.classList.toggle("remove");
       show2.classList.toggle("show");
@@ -170,16 +146,16 @@ export default {
       show1.classList.remove('show')
       show1.classList.add('remove')
 
-      
+
     },
 
     lerp(start, end, t) {
       return start * (1 - t) + end * t;
     },
     loadImages() {
-      this.textureOne = new THREE.TextureLoader().load(images.DoubleboggeyP);
-      this.textureTwo = new THREE.TextureLoader().load(images.Michelangelo);
-      this.textureThree = new THREE.TextureLoader().load(images.Nearide);
+      this.textureOne = new THREE.TextureLoader().load(images.Seqens);
+      this.textureTwo = new THREE.TextureLoader().load(images.Studiosupram);
+
     },
     runScene() {
       this.container = this.$refs.main;
@@ -259,8 +235,8 @@ export default {
       console.log()
     },
 
-    onScrollMove(){
-      window.addEventListener('scroll', () =>{
+    onScrollMove() {
+      window.addEventListener('scroll', () => {
         this.targetY += window.pageYOffset - this.lastScrollPosition;
         this.lastScrollPosition = window.pageYOffset;
       })
@@ -285,7 +261,7 @@ export default {
       this.offset.x = this.lerp(this.offset.x, this.targetX, 0.1);
       this.offset.y = this.lerp(this.offset.y, this.targetY, 0.1);
       this.uniforms.uOffset.value.set((this.targetX - this.offset.x) * 0.0005, -(this.targetY - this.offset.y) * 0.0005);
-      this.mesh.position.set(this.offset.x - (this.viewport.width / 2), -this.offset.y + (this.viewport.height / 2)) ;
+      this.mesh.position.set(this.offset.x - (this.viewport.width / 2), -this.offset.y + (this.viewport.height / 2));
       this.renderer.setSize(this.viewport.width, this.viewport.height);
       this.renderer.render(this.scene, this.camera);
       requestAnimationFrame(this.render.bind(this));
@@ -296,8 +272,8 @@ export default {
 
   computed: {
     viewport() {
-     
-    
+
+
       const width = window.innerWidth;
       const height = this.$refs.main.clientHeight;
       const aspectRatio = width / height;
@@ -326,11 +302,11 @@ export default {
   background-color: #131212;
 }
 
-canvas{
-  mix-blend-mode: difference!important;
+canvas {
+  mix-blend-mode: difference !important;
 }
 
-#show, #show1, #show2{
+#show, #show1, #show2 {
   display: flex;
   margin-bottom: 1.5%;
 }
@@ -339,8 +315,6 @@ canvas{
 main {
   width: 100%;
   height: 100vh;
- 
-
 
 
   h1 {
@@ -366,160 +340,159 @@ main {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #FFFFFF;
-  
+
       cursor: pointer;
       align-items: center;
 
-      .myProject{
+      .myProject {
         display: flex;
         flex-direction: column;
         width: 100%;
 
-        .presentation{
+        .presentation {
           display: flex;
           flex-direction: row;
-          
+
           justify-content: space-between;
           align-items: center;
           margin: 3% 0 1.5% 0;
 
-         
 
-          span:nth-child(1){
+          span:nth-child(1) {
             font-size: clamp(1.875rem, 1.1806rem + 3.7037vw, 5.625rem);
             padding-left: 2%;
           }
 
-          span:nth-child(2){
+          span:nth-child(2) {
             padding-right: 2%;
             font-family: 'NeueL', serif;
           }
 
-         
+
         }
 
-        .none{
+        .none {
           display: none;
         }
 
-        .remove{
+        .remove {
           transition: height;
-          display: flex!important;
+          display: flex !important;
           justify-content: space-around;
           transition-duration: 1s;
           height: 0vh;
 
-          .description{
+          .description {
             width: 50%;
             display: flex;
             align-items: center;
             overflow: hidden;
 
-              p{
-                font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
-                font-family: 'NeueL', serif;
-                padding: 0 2%;
-              }
+            p {
+              font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
+              font-family: 'NeueL', serif;
+              padding: 0 2%;
+            }
           }
 
-          .link{
+          .link {
             display: flex;
             align-items: center;
             width: 24%;
             text-align: center;
             overflow: hidden;
-           position: relative;
+            position: relative;
             z-index: 100;
-            
 
-              a{
-                font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
-                font-family: 'NeueM', serif;
-                position: absolute;
-                padding: 0 2%;
-                color: transparent;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: #fff;
-                text-decoration: none;
-              }
 
-                .cool-link::after {
-                  content: '';
-                  display: block;
-                  width: 0;
-                  height: 2px;
-                  background: #FFFFFF;
-                  transition: width .3s;
-              }
+            a {
+              font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
+              font-family: 'NeueM', serif;
+              position: absolute;
+              padding: 0 2%;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: #fff;
+              text-decoration: none;
+            }
 
-              .cool-link:hover::after {
-                  width: 100%;
-                  //transition: width .3s;
-              }
-          }          
+            .cool-link::after {
+              content: '';
+              display: block;
+              width: 0;
+              height: 2px;
+              background: #FFFFFF;
+              transition: width .3s;
+            }
+
+            .cool-link:hover::after {
+              width: 100%;
+              //transition: width .3s;
+            }
+          }
         }
 
-        .show{
+        .show {
           transition: height;
-          display: flex!important;
+          display: flex !important;
           justify-content: space-around;
           transition-duration: 2s;
           height: 29.5vh;
 
-          .description{
+          .description {
             width: 50%;
             display: flex;
             align-items: center;
             overflow: hidden;
-            
-               p{
-                  font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
-                  font-family: 'NeueL', serif;
-                  padding: 0 2%;
+
+            p {
+              font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
+              font-family: 'NeueL', serif;
+              padding: 0 2%;
             }
           }
 
-          .link{
+          .link {
             display: flex;
             align-items: center;
             width: 24%;
             text-align: center;
             overflow: hidden;
 
-              a{
-                font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
-                font-family: 'NeueM', serif;
-                padding: 0 2%;
-                color: transparent;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: #fff;
-                text-decoration: none;
+            a {
+              font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
+              font-family: 'NeueM', serif;
+              padding: 0 2%;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: #fff;
+              text-decoration: none;
             }
 
-              .cool-link::after {
-                content: '';
-                display: block;
-                width: 0;
-                height: 2px;
-                background: #FFFFFF;
-                transition: width .3s;
+            .cool-link::after {
+              content: '';
+              display: block;
+              width: 0;
+              height: 2px;
+              background: #FFFFFF;
+              transition: width .3s;
             }
 
             .cool-link:hover::after {
-                width: 100%;
-                //transition: width .3s;
+              width: 100%;
+              //transition: width .3s;
             }
           }
         }
       }
-    
-      &:hover{
-        background-position: 0% 100%;
-        color: white!important;
 
-        span{
+      &:hover {
+        background-position: 0% 100%;
+        color: white !important;
+
+        span {
           color: white;
-          
+
         }
       }
 
@@ -532,53 +505,52 @@ main {
   }
 }
 
-.page{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-content: center;
-      position: absolute;     
-      z-index: 1000;
-      height: 3vh;
-      width: 100%;
-      margin-left: -4%;
-      background: transparent;
-      bottom: 19px;
-     
-     
-      
-      a{
-          color: white;
-          position: absolute;
-          text-decoration: none;
-          font-size: clamp(0.875rem, 0.8287rem + 0.2469vw, 1.125rem);
-          font-family: "NeueL", sans-serif;
-          border-bottom: 0px solid #FFFFFF;
-          background: transparent;
-          
-                  
-      }
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  position: absolute;
+  z-index: 1000;
+  height: 3vh;
+  width: 100%;
+  margin-left: -4%;
+  background: transparent;
+  bottom: 19px;
 
-      .cool-link::after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background: #FFFFFF;
-        transition: width .3s;
-    }
 
-    .cool-link:hover::after {
-        width: 100%;
-        //transition: width .3s;
-    }
-      
+  a {
+    color: white;
+    position: absolute;
+    text-decoration: none;
+    font-size: clamp(0.875rem, 0.8287rem + 0.2469vw, 1.125rem);
+    font-family: "NeueL", sans-serif;
+    border-bottom: 0px solid #FFFFFF;
+    background: transparent;
+
+
   }
+
+  .cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #FFFFFF;
+    transition: width .3s;
+  }
+
+  .cool-link:hover::after {
+    width: 100%;
+    //transition: width .3s;
+  }
+
+}
 
 
 @media (min-width: 300px) and (max-width: 700px) {
-  .presentation{
-    flex-direction: column!important;
+  .presentation {
+    flex-direction: column !important;
   }
 
 }

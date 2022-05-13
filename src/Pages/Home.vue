@@ -27,7 +27,7 @@
       </div>   
       <div class="page">
               <div class="about">
-                  <router-link to="/Work" class="cool-link">About</router-link>
+                  <router-link to="/About" class="cool-link">About</router-link>
               </div>
               <div class="about">
                   <router-link to="/HomeWork" class="cool-link">projects</router-link>
