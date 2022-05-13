@@ -151,9 +151,7 @@ export default {
   }
 }
 
-@media (min-width: 300px) and (max-width: 600px) {
-  
-}
+
 
 
 </style>

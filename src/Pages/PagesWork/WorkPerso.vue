@@ -36,7 +36,8 @@
                   is. So, to save characters, we created a url minifier.</p>
               </div>
               <div class="link">
-                <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+                <img src="../../assets/img/url_minifier.png">
+                <label>(this project is private)</label>
               </div>
             </div>
           </div>
@@ -47,7 +48,7 @@
               <span>Polluscore generator</span>
               <span>This project was created in 2022</span>
             </div>
-            <div id="show2" class="remove none">
+            <div id="show2" class="remove none" >
               <div class="description">
                 <p>polluscore generator was created to be able to generate polluscore simply. Indeed, Innocean France
                   mainly integrates emails for Hyundai and Kia cars and in each email we must put the polluscore of each
@@ -56,7 +57,10 @@
                   you to download images in png, svg and jpg.</p>
               </div>
               <div class="link">
-                <a href="www.adrienbouteiller.com" class="cool-link">Voir le site</a>
+
+                <img src="../../assets/img/polluscore_generator.png">
+                  <label>(this project is private)</label>
+
               </div>
             </div>
           </div>
@@ -73,7 +77,7 @@
         <router-link to="/" class="cool-link">Home</router-link>
       </div>
       <div class="about">
-        <router-link to="/HomeWork" class="cool-link">Page projects</router-link>
+        <router-link to="/HomeWork" class="cool-link">projects page</router-link>
       </div>
     </div>
   </div>
@@ -336,6 +340,7 @@ canvas {
 }
 
 
+
 main {
   width: 100%;
   height: 100vh;
@@ -364,7 +369,7 @@ main {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #FFFFFF;
-
+      overflow: hidden;
       cursor: pointer;
       align-items: center;
 
@@ -428,6 +433,12 @@ main {
             position: relative;
             z-index: 100;
 
+            label{
+              position: absolute;
+              margin-top: 53%;
+            }
+
+
 
             a {
               font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
@@ -462,12 +473,15 @@ main {
           justify-content: space-around;
           transition-duration: 2s;
           height: 29.5vh;
+          overflow-y: hidden;
+
 
           .description {
             width: 50%;
             display: flex;
             align-items: center;
             overflow: hidden;
+
 
             p {
               font-size: clamp(0.875rem, 0.6898rem + 0.9877vw, 1.875rem);
@@ -482,6 +496,13 @@ main {
             width: 24%;
             text-align: center;
             overflow: hidden;
+            label{
+              position: absolute;
+              margin-top: 13%;
+              overflow-y: hidden;
+            }
+
+
 
             a {
               font-size: clamp(1.5625rem, 1.1574rem + 2.1605vw, 3.75rem);
@@ -491,6 +512,7 @@ main {
               -webkit-text-stroke-width: 1px;
               -webkit-text-stroke-color: #fff;
               text-decoration: none;
+              overflow-y: hidden;
             }
 
             .cool-link::after {

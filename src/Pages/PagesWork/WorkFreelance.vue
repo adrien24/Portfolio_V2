@@ -49,7 +49,7 @@
         <router-link to="/" class="cool-link">Home</router-link>
       </div>
       <div class="about">
-        <router-link to="/HomeWork" class="cool-link">Page projects</router-link>
+        <router-link to="/HomeWork" class="cool-link">projects page</router-link>
       </div>
     </div>
   </div>
